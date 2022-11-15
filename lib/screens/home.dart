@@ -3,6 +3,7 @@ import 'package:whatsapp_ui/screens/newCall.dart';
 
 import './newChat.dart';
 import './newStatus.dart';
+import './community.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -26,6 +27,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
         title: const Text('WhatsApp',
             style: TextStyle(color: Colors.white, fontSize: 20)),
         actions: [
+          InkWell(child: Icon(Icons.camera_alt_outlined), onTap: () {},),
+          SizedBox(width: 20),
           InkWell(child: Icon(Icons.search), onTap: () {}),
           PopupMenuButton(
             shape: RoundedRectangleBorder(
@@ -48,7 +51,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           controller: tabController,
           tabs: [
             const Tab(
-              icon: Icon(Icons.camera_alt, color: Colors.white),
+              icon: Icon(Icons.people_rounded, color: Colors.white),
             ),
             Tab(
               child: Text("CHATS", style: Theme.of(context).textTheme.button),
@@ -65,9 +68,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       body: TabBarView(
         controller: tabController,
         children: [
-          const Center(
-            child: Text("Feature is Coming Soon"),
-          ),
+          Community(),
           ChatsTab(),
           StatusTab(),
           CallTab(),
